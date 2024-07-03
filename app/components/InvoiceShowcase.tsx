@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { item } from '../interfaces/interfaces'
 interface PropTypes {
-    componentRef: React.LegacyRef<HTMLDivElement>,
     invoiceID: string,
     companyDetails: string,
     billingTo: string,
