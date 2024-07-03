@@ -35,6 +35,7 @@ import {
 import Image from "next/image";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { useEffect } from "react";
+import { ModeToggle } from "./components/ThemeButton";
 
 const colors = [ "#1E67C6", "#4D85B1", "#FAC717", "#2563EB"]
 export default function Home() {
@@ -53,12 +54,12 @@ export default function Home() {
   return (
 
     <main>
-      <motion.div style={{backgroundImage}} className="relative">
+      <motion.div style={{backgroundImage}} className="relative min-h-screen">
         <nav className="dark:bg-[#020817]  w-full py-[12px] px-[32px] z-[10]">
           <div className="flex justify-between max-w-[1200px] mx-auto items-center">
             <div className="flex gap-2 items-start">
               <motion.h1  className="text-2xl font-bold w-[100px] my-auto h-[30px] text-white select-none">invoicer</motion.h1>
-              <NavigationMenu>
+              <NavigationMenu className="hidden lg:block">
                 <NavigationMenuList>
                   <NavigationMenuItem className="min-w-min hover:bg-none">
                     <NavigationMenuTrigger >Get Started</NavigationMenuTrigger>
@@ -74,16 +75,15 @@ export default function Home() {
             </div>
             <div className="flex gap-3 items-center">
               {/* <motion.button >Sign Up</motion.button> */}
-              
+              <ModeToggle />
               <Link href={'https://github.com/HazemGamal1'} target="#"><BsGithub className="text-3xl"/></Link>
             </div>
           </div>
         </nav>
         <Hero color={color} border={border} boxShadow={boxShadow}/>
-        <Image src={arrow} alt="arrow" className="absolute -bottom-10 left-[48%] rotate-[170deg] z-[1000]" width={80} height={80}/>
+        {/* <Image src={arrow} alt="arrow" className="absolute -bottom-10 left-[48%] rotate-[170deg] z-[1000]" width={80} height={80}/> */}
       </motion.div>
-      <Overview/>
-      {/* <Newheights /> */}
+      {/* <Overview/> */}
     </main>
   );
 }

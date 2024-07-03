@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const Hero = ({border, boxShadow,color} : {border: MotionValue<string>, boxShadow: MotionValue<string>, color: MotionValue<string>}) => {
   return (
-    <motion.section initial={{opacity: 0, y: 8}} animate={{opacity: 1, y: 0}} transition={{ease: 'easeInOut', duration: 0.45}} className="overflow-hidden xl:overflow-visible relative max-w-[1200px] mx-auto grid place-content-center pt-12 xl:pt-32" >
+    <motion.section initial={{opacity: 0, y: 8}} animate={{opacity: 1, y: 0}} transition={{ease: 'easeInOut', duration: 0.45}} className="overflow-hidden xl:overflow-visible relative max-w-[1200px] mx-auto grid place-content-center pt-12 xl:pt-26" >
       <span className="mb-8 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm max-w-max mx-auto text-white">
         Early Access v1.0 Live Now!
       </span>
@@ -26,8 +26,7 @@ const Hero = ({border, boxShadow,color} : {border: MotionValue<string>, boxShado
       <motion.div initial={{x: 30}} animate={{x:0}} transition={{ease: 'easeInOut', duration: 1}} className="absolute -right-[10rem] top-[30%] z-[2]">
         <Image src={image} alt="img" width={450} height={450}/>
 
-      </motion.div>
-        
+      </motion.div>    
     </motion.section>
   )
 }

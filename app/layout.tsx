@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { ThemeProvider } from "./components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="dark">
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -26,16 +26,21 @@ export default function RootLayout({
         <meta name="theme-color" content="#4366b0"/>
       </head>
       <body className={inter.className}>
-        {/* light => bg-[#0457D8] bg-gradient-to-tr from-[#0457D8] to-[#4D85B1]    */}
-      {/* dark:from-[#204BB4] dark:to-[#7348A5]" */}
-        <div className={`flex flex-col justify-between min-h-screen bg-[#0457D8] bg-gradient-to-tr from-[#0457D8] to-[#4D85B1] dark:from-[#204BB4] dark:to-[#7348A5] `}>
-          {children}
-          {/* <footer className="mu-2 bg-blue-700">
-            <div className="max-w-[1200px] mx-auto px-12">
-              <h1>Invoicer</h1>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+            <div className={`flex flex-col justify-between min-h-screen bg-[#0457D8] bg-gradient-to-tr from-[#0457D8] to-[#4D85B1] dark:from-[#204BB4] dark:to-[#7348A5] transition-colors duration-300`}>
+              {children}
             </div>
-          </footer> */}
-        </div>
+            <footer className="bg-black text-white">
+              <div className="max-w-screen-2xl mx-auto p-2">
+                <p className="flex items-start gap-1">invoicer <span className="text-sm text-[#0457D8]">tm</span></p>
+              </div>
+            </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
