@@ -118,7 +118,7 @@ const GeneratePDF = () => {
   }
   const generatePDF = () => {
     const doc = new jsPDF();
-  
+
     // Adding header
     doc.setFontSize(16);
     doc.text('INVOICE', 14, 20);
