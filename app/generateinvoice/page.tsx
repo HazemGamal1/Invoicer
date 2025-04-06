@@ -2,11 +2,9 @@
 import jsPDF from "jspdf";
 import { useReducer } from "react";
 import autoTable from "jspdf-autotable";
-import Navbar from "../components/Navbar";
 import InvoiceShowcase from "../components/InvoiceShowcase";
 import { Button } from "@/components/ui/button";;
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea"
 import { CgAdd } from "react-icons/cg";
@@ -18,6 +16,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+// import logo from "../../public/Group.png"
+import Image from "next/image";
+
 
 
 //initial state
@@ -29,7 +30,7 @@ const initialState: State = {
   dueDate: "", 
   items: [],
   newItemTitle: "",
-  newItemPrice: 0,
+  newItemPrice: 0 ,
   newItemQuantity: 0,
   tax: 0,
   discount: 0,
@@ -105,7 +106,7 @@ const reducer = (state: State, action: Action) => {
     case "setItems":
       return {...state, items: [...state.items, {name: state.newItemTitle, price: state.newItemPrice, quantity: state.newItemQuantity, amount: state.newItemPrice * state.newItemQuantity}]};
     default: 
-    return state;
+      return state;
   }
 }
 
@@ -184,11 +185,10 @@ const GeneratePDF = () => {
   }
   return (
     <>
-      <main className="w-full  flex flex-col bg-[#F7F9FD] dark:bg-[#121212]">
-        <Navbar/>
-        {/* <div className="flex-1 min-h-[5rem] border-b-2 w-full" >
-          template
-        </div> */}
+      <main className="w-full  relative flex flex-col ">
+        <div className="absolute bottom-4 right-4">
+          {/* <Image src={logo} alt="logo" width={50}/>   */}
+        </div>
         <div className="flex flex-col xl:flex-row w-full h-full min-h-screen">
         <motion.div initial={{x: 0,  opacity: 0}} animate={{x: 0, opacity: 1}} transition={{ease:"easeInOut", duration: 0.25}} className="xl:w-[50%] border-r-2 border-gray-400/20 ">
               <form className="px-4 mt-4 text-sm md:text-md">
@@ -228,20 +228,20 @@ const GeneratePDF = () => {
                 <div className="flex mt-4 gap-2">
                   <div className="flex-col gap-1 w-full">
                     <label>Tax:</label>
-                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setTax', payload: Number(e.target.value)})} value={tax}/>
+                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setTax', payload: Number(e.target.value)})}  />
 
                   </div>  
 
                   <div className="flex-col gap-1 w-full">
                     <label>Discount:</label>
-                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setDiscount', payload: Number(e.target.value)})} value={discount}/>
+                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setDiscount', payload: Number(e.target.value)})}/>
                   </div>  
 
                 </div>
                 <div className="flex mt-4 gap-2">
                   <div className="flex-col gap-1 w-full">
                     <label>Shipping Tax:</label>
-                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setShippingTax', payload: Number(e.target.value)})}  value={shippingTax}/>
+                    <Input type="number" className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setShippingTax', payload: Number(e.target.value)})}/>
 
                   </div>  
 
@@ -251,8 +251,8 @@ const GeneratePDF = () => {
                   <Textarea className="border-2 rounded-lg w-full p-2 my-2" onChange={(e) => dispatch({type: 'setNote', payload: e.target.value})}  value={note}/>
                 </div>  
 
-                <div className="bg-[#f3f3f3] dark:bg-black rounded-lg mt-4 p-2 flex flex-col gap-2">
-                  <div className="flex justify-between w-full">
+                <div className="rounded-lg mt-4 p-4 pb-8 flex flex-col gap-2">
+                  <div className="flex justify-between w-full border-b-2  pb-2">
                     <div className="w-[50%]">
                       Item
                     </div>
@@ -269,7 +269,8 @@ const GeneratePDF = () => {
                   {
                     items.map((item, index) => (
                       <div className="flex justify-between w-full" key={index}>
-                        <div className="w-[50%] p-2 bg-white dark:bg-[#121212] rounded-lg">
+                        <div className="w-[50%] p-2  rounded-lg"> 
+                          {/*dark:bg-[#121212]  */}
                           {item.name}
                         </div>
                         <div className="w-[10%]  p-2 bg-white rounded-lg dark:bg-[#121212] text-center">
@@ -300,11 +301,11 @@ const GeneratePDF = () => {
                         <DialogDescription>
                           <form onSubmit={handleAddItem} className="flex flex-col gap-2">
                             <label htmlFor="title">item title</label>
-                            <Input type="text" id="title" onChange={(e) => dispatch({type: 'setNewItemTitle', payload: e.target.value})} value={newItemTitle}/>
+                            <Input type="text" id="title" onChange={(e) => dispatch({type: 'setNewItemTitle', payload: e.target.value})}/>
                             <label htmlFor="price">item price</label>
-                            <Input type="number" id="price" onChange={(e) => dispatch({type: 'setNewItemPrice', payload: Number(e.target.value)})} value={newItemPrice}/>
+                            <Input type="number" id="price" onChange={(e) => dispatch({type: 'setNewItemPrice', payload: Number(e.target.value)})}/>
                             <label htmlFor="quantity">item quantity</label>
-                            <Input type="number" id="quantity" onChange={(e) => dispatch({type: 'setNewItemQuantity', payload: Number(e.target.value)})} value={newItemQuantity}/>
+                            <Input type="number" id="quantity" onChange={(e) => dispatch({type: 'setNewItemQuantity', payload: Number(e.target.value)})}/>
                             <Button type="submit">Submit</Button>
                           </form>
                         </DialogDescription>
@@ -322,8 +323,9 @@ const GeneratePDF = () => {
                 </div>
               </div>
             </motion.div>
-          <div className="w-full min-h-full bg-[#f4f4f4] dark:bg-[#121212] xl:p-8 py-12 ">
-          <div className="w-full h-full flex justify-center">
+          <div className="w-full min-h-full xl:p-8 py-12  bg-gray-200 ">
+            {/* bg-[#020817] */}
+          <div className="w-full h-full flex justify-center bg-gray-200">
               <InvoiceShowcase 
                 items={items} 
                 invoiceID={invoiceID} 

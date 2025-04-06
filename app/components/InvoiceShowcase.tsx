@@ -16,10 +16,10 @@ interface PropTypes {
 export default function InvoiceShowcase({invoiceID, companyDetails, billingTo, items, tax, discount, date, calcAll, shippingTax, dueDate} : PropTypes) {
     const componentRef= useRef<any>();
   return (
-    <div className="w-[658px] h-[842px] flex flex-col justify-between bg-white pt-8 dark:text-black select-none" ref={componentRef}>
+    <div className="w-[658px] h-[842px] flex flex-col justify-between bg-white pt-8 m-2 md:m-0 dark:text-black select-none" ref={componentRef}>
               <div className="px-4 xl:px-8">
                 <div className="flex justify-between items-end px-4">
-                  <h1 className="text-xl uppercase">Invoice</h1>
+                  <h1 className="text-xl uppercase font-normal">Invoice</h1>
                 </div>
                 <div className="py-4 px-4">
                   #{invoiceID}
@@ -35,7 +35,7 @@ export default function InvoiceShowcase({invoiceID, companyDetails, billingTo, i
                   </div>
                 </div>
                 <div className="mt-2 p-2 flex flex-col ">
-                <div className="flex justify-between w-full font-bold bg-blue-700 p-2 text-white text-xs sm:text-sm md:text-md lg:text-lg">
+                <div className="flex justify-between w-full font-normal bg-blue-700 p-2 text-white text-xs sm:text-sm md:text-md lg:text-lg">
                   <div className="w-[50%] ">
                     Deliverable
                   </div>
