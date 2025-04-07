@@ -19,9 +19,9 @@ const SignUp = () => {
         </form>
       </div>
 
-      <div className='w-[55%] h-full relative'>
+      <div className='w-[55%] h-full relative hidden md:block'>
         <Image src={coffee} alt='coffee' className='object-cover object-center w-full h-full -z-10'/>
-        <p className='absolute bottom-0 left-4 text-white font-bold text-4xl backdrop-blur-md max-w-max p-4 pt-8'>Trying to make the simple part, <span className='text-main'>simpler</span>.</p>
+        <p className='absolute bottom-0 left-4 text-white font-bold text-2xl xl:text-3xl 2xl:text-4xl max-w-max p-4 pt-8'>Trying to make the simple part, <span className='text-main'>simpler</span>.</p>
       </div>
       
     </div>
