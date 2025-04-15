@@ -1,43 +1,20 @@
 "use client"
 import Link from "next/link";
-import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
-import customizableImg from "../public/alert.jpg"
-import { FileText, CreditCard, BarChart, Clock, CheckCircle, Mail, Phone } from "lucide-react"
-import simple from "../public/simplicity.jpg"
-import reports from "../public/customizable.jpg"
-import coffee from "../public/coff.jpg"
+import { motion } from "framer-motion";
+import customizableImg from "../../public/alert.jpg"
+import { FileText, Clock, CheckCircle, Mail, Phone, Paperclip } from "lucide-react"
+import simple from "../../public/simplicity.jpg"
 interface data {
   companyTitle: string,
   customerTitle: string,
   product: string,
 }
 import Image from "next/image";
-import Nav from "./components/Nav";
+import Nav from "../components/Nav";
 import { Button } from "@/components/ui/button";
-import FadeInSection from "./components/FadeInSection";
-
-// const colors = [ "#1E67C6", "#4D85B1"];
+import FadeInSection from "../components/FadeInSection";
 
 export default function Home() {
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch('/api/data');
-
-  //       if (!res.ok) {
-  //         throw new Error('Failed to fetch data');
-  //       }
-
-  //       const data = await res.json();
-  //       console.log(data);
-  //       // setData(data);
-  //     } catch (error) {
-  //       // setError(error.message);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
   return (
     <main>
       <Nav />
@@ -84,20 +61,25 @@ export default function Home() {
                 </div>
               </div>
               <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-6">
-                <div className="grid place-content-end w-full text-center lg:col-span-2 shadow-xl relative h-[30rem]">
-                  <Image src={coffee} alt="coffee" className="w-full h-full object-cover object-center -z-10 absolute"/>
-                  <div className="text-white p-4 font-bold">
-                    <h3 className="text-4xl mb-4 text-center">Mobile Friendly</h3>
-                    <p className="text-center">
+                <div className="grid place-content-center w-full text-center lg:col-span-2 shadow-xl relativeزborder rounded-lg h-[30rem]">
+                  <div className="p-4"
+                  >
+                    <div className="rounded-full bg-primary/10 p-3 max-w-max mx-auto my-4">
+                      <Phone className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-3xl mb-4 text-center  font-bold">Mobile Friendly</h3>
+                    <p className="text-center text-muted-foreground">
                       Create and send invoices from anywhere using our mobile-friendly interface.
                     </p>
                   </div>
                 </div>
-                <div className="grid place-content-end w-full h-full text-center relative lg:col-span-4 ma-w-max">
-                  <Image src={reports} alt="coffee" className="w-full h-full object-cover object-center -z-10 absolute"/>
-                  <div className="text-white p-4 h-full mb-6 font-bold">
-                    <h3 className="md:text-4xl mb-4">Financial Reports</h3>
-                    <p className="text-center ">
+                <div className="grid place-content-center w-full h-full text-center relative lg:col-span-4 ma-w-max shadow-xl border">
+                  <div className="rounded-full bg-primary/10 p-3 max-w-max mx-auto my-4">
+                    <Paperclip className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="p-4 h-full mb-6">
+                    <h3 className="md:text-3xl mb-4 font-bold">Financial Reports</h3>
+                    <p className="text-center text-muted-foreground max-w-[50%] mx-auto">
                       Generate detailed reports to track your income, expenses, and outstanding invoices.
                     </p>
                   </div>
@@ -108,7 +90,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold">Recurring Invoices</h3>
                   <p className="text-center text-muted-foreground">
-                    Set up automatic billing for your regular clients and save hours every month.
+                   --et up automatic billing for your regular clients and save hours every month.
                   </p>
                 </div>
                 <div className="flex flex-col items-center space-y-2 rounded-lg border bg-background p-6 shadow-xl lg:col-span-2">

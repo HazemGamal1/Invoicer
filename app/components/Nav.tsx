@@ -1,8 +1,11 @@
 "use client"
 import Link from "next/link";
-import { motion} from "framer-motion";
-import { FiUser } from "react-icons/fi";
-import { IoMdSearch } from "react-icons/io";
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
+
 import Image from "next/image";
 import logo from "../../public/invoicerLogo.svg"
 import { Button } from "@/components/ui/button";
@@ -14,15 +17,19 @@ const Nav = () => {
         <div className="flex gap-6 items-center">
           <div className="flex gap-1 items-center">
             <Image src={logo} alt="logo" width={50}/>
-            {/* <motion.h1  className="text-xl select-none font-semibold">invoicer</motion.h1> */}
           </div>       
         </div>
         <div className="flex gap-4 items-center">
+          <SignedOut>
             <Button variant={"invoicer"}>
-              <Link href={"/signup"}>
+              <Link href={"/sign-up"}>
                 Get started
               </Link>
             </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
         </div>
     </nav>
