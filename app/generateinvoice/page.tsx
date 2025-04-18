@@ -16,7 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-// import logo from "../../public/Group.png"
+import logo from "../../public/invoicerLogo.svg"
 import Image from "next/image";
 
 
@@ -185,10 +185,13 @@ const GeneratePDF = () => {
   }
   return (
     <>
-      <main className="w-full  relative flex flex-col ">
-        <div className="absolute bottom-4 right-4">
-          {/* <Image src={logo} alt="logo" width={50}/>   */}
-        </div>
+    <div className="w-full max-h-screen flex">
+      <nav className="w-[60px] sticky left-0 top-0">
+        <Image src={logo} width={40} height={40} alt="logo" className="mx-auto"/>
+      </nav>
+      <main className="w-full  relative flex flex-col rounded-tl-md">
+        {/* <div className="w-full p-3"></div> */}
+        
         <div className="flex flex-col xl:flex-row w-full h-full min-h-screen">
         <motion.div initial={{x: 0,  opacity: 0}} animate={{x: 0, opacity: 1}} transition={{ease:"easeInOut", duration: 0.25}} className="xl:w-[50%] border-r-2 border-gray-400/20 ">
               <form className="px-4 mt-4 text-sm md:text-md">
@@ -342,6 +345,7 @@ const GeneratePDF = () => {
           </div>
         </div>
       </main>
+    </div>
     </>
   )
 }

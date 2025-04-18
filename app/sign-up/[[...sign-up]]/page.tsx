@@ -2,15 +2,15 @@ import Image from 'next/image'
 import React from 'react'
 import logo from "../../../public/invoicerLogo.svg"
 import coffee from "../../../public/coffee.jpg"
-import { SignIn } from '@clerk/nextjs'
+import { SignUpButton } from '@clerk/nextjs'
 
 const SignUp = () => {
   return (
     <div className='h-screen flex justify-between items-center relative bg-[#FFF]'>
       <div className=' bg-white w-full h-full flex flex-col justify-center mx-auto'>
         <Image src={logo} alt='logo' className='mx-auto my-4 lg:w-[80px]' width={60}/>
-        <div className='mx-auto'>
-          <SignIn />
+        <div className='mx-auto hover:underline'>
+          <SignUpButton />
         </div>
       </div>
 

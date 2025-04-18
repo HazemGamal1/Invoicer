@@ -61,7 +61,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-6">
-                <div className="grid place-content-center w-full text-center lg:col-span-2 shadow-xl relativeزborder rounded-lg h-[30rem]">
+                <div className="grid place-content-center w-full text-center lg:col-span-2 shadow-xl relative border rounded-lg h-[30rem]">
                   <div className="p-4"
                   >
                     <div className="rounded-full bg-primary/10 p-3 max-w-max mx-auto my-4">
@@ -167,7 +167,7 @@ export default function Home() {
                   </ul>
                   <div>
                     <Button size="lg" asChild className="rounded-none">
-                      <Link href="/signup">Try It Now</Link>
+                      <Link href="/sign-up">Try It Now</Link>
                     </Button>
                   </div>
                 </div>

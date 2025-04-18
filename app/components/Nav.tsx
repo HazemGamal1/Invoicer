@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   SignedIn,
   SignedOut,
+  SignUpButton,
   UserButton,
 } from '@clerk/nextjs'
 
@@ -22,9 +23,9 @@ const Nav = () => {
         <div className="flex gap-4 items-center">
           <SignedOut>
             <Button variant={"invoicer"}>
-              <Link href={"/sign-up"}>
+              <SignUpButton>
                 Get started
-              </Link>
+              </SignUpButton>
             </Button>
           </SignedOut>
           <SignedIn>
